@@ -14,13 +14,12 @@
     <artifactId>befw</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Archetype - befw</name>
+    <name>befw</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <java.version>21</java.version>
-        <json.schema.version>1.4.0</json.schema.version>
-        <json.schema.plugin.version>1.2.1</json.schema.plugin.version>
+        <tas.befw.schema>1.0.4-SNAPSHOT</tas.befw.schema>
     </properties>
 
 
@@ -160,10 +159,11 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
-            <groupId>com.networknt</groupId>
-            <artifactId>json-schema-validator</artifactId>
-            <version>${json.schema.version}</version>
+            <groupId>com.tsh</groupId>
+            <artifactId>tsh-schema</artifactId>
+            <version>${tas.befw.schema}</version>
         </dependency>
     </dependencies>
 
@@ -198,38 +198,21 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.jsonschema2pojo</groupId>
-                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-                <version>${json.schema.plugin.version}</version>
-                <configuration>
-                    <!-- schemas/ 폴더 위치 -->
-                    <sourceDirectory>${project.basedir}/schemas</sourceDirectory>
-                    <!-- 생성된 클래스 패키지 -->
-                    <targetPackage>com.tsh.starter.befw.generated</targetPackage>
-                    <!-- Record 대신 일반 클래스로 생성 (jsonschema2pojo는 record 미지원) -->
-                    <generateBuilders>false</generateBuilders>
-                    <!-- @NotNull 등 jakarta validation 어노테이션 추가 -->
-                    <useJakartaValidation>true</useJakartaValidation>
-                    <!-- additionalProperties 필드 제거 -->
-                    <includeAdditionalProperties>false</includeAdditionalProperties>
-                    <!-- title 값을 클래스명으로 사용 -->
-                    <useTitleAsClassname>true</useTitleAsClassname>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+
+    <repositories>
+        <repository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>
