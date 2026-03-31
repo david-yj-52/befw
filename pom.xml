@@ -19,7 +19,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <tas.befw.schema>1.0.4-SNAPSHOT</tas.befw.schema>
+        <tas.befw.schema>1.0.5-SNAPSHOT</tas.befw.schema>
     </properties>
 
 
