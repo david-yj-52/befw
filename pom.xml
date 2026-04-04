@@ -24,6 +24,12 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.solacesystems</groupId>
+            <artifactId>sol-jcsmp</artifactId>
+            <version>10.25.0</version>
+        </dependency>
         <!-- Spring Boot Starters -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -165,6 +171,12 @@
             <artifactId>tsh-schema</artifactId>
             <version>${tas.befw.schema}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 
@@ -210,6 +222,16 @@
         <repository>
             <id>nexus-releases</id>
             <url>http://localhost:8081/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/david-yj-52/befw-schema-repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
             <releases>
                 <enabled>true</enabled>
             </releases>
