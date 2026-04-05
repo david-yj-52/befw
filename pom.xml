@@ -19,7 +19,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <tas.befw.schema>1.0.5-SNAPSHOT</tas.befw.schema>
+        <tas.befw.schema>1.0.6-SNAPSHOT</tas.befw.schema>
     </properties>
 
 
@@ -176,6 +176,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-envers</artifactId>
         </dependency>
     </dependencies>
 
