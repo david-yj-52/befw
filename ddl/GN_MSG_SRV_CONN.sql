@@ -15,7 +15,7 @@ CREATE TABLE GN_MSG_SRV_CONN
     SOL_NM      VARCHAR(50)  NOT NULL,               -- UK, Messaging 서비스 이름 (Kafka, Solace)
     HOST        VARCHAR(100) NOT NULL,               -- UK, 서버 IP
     PORT        NUMERIC,                             -- 서버 포트
-    "USER"      VARCHAR(100),                        -- 접속 아이디
+    CONN_USER   VARCHAR(100),                        -- 접속 아이디
     PWD         VARCHAR(100),                        -- 접속 비밀번호
     DOMAIN      VARCHAR(50),
     EVNT_NM     VARCHAR(100) NOT NULL,               -- Null = N
