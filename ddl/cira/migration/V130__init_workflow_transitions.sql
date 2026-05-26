@@ -1,0 +1,16 @@
+-- Flyway Migration: V130__init_workflow_transitions
+-- 워크플로우 상태 전이 기능 지원을 위한 인덱스 보완
+-- 기본 상태 및 전이 규칙 데이터는 ProjectService.createProject() 에서 프로젝트 생성 시 자동 삽입됨
+-- Generated: 2026-05-25
+
+-- SN_CIRA_ISSUE_TRANSITION: FROM_STATUS_ID 인덱스 추가 (전이 검증 쿼리 최적화)
+CREATE INDEX IF NOT EXISTS IDX_SN_CIRA_ISSUE_TRANSITION_FROM_STATUS
+    ON SN_CIRA_ISSUE_TRANSITION (PROJECT_ID, FROM_STATUS_ID);
+
+-- SN_CIRA_BOARD_COLUMN: STATUS_ID 인덱스 추가 (상태 변경 시 컬럼 조회 최적화)
+CREATE INDEX IF NOT EXISTS IDX_SN_CIRA_BOARD_COLUMN_STATUS_ID
+    ON SN_CIRA_BOARD_COLUMN (STATUS_ID);
+
+-- SN_CIRA_ISSUE_POSITION: ISSUE_ID 인덱스 추가 (이슈 포지션 조회 최적화)
+CREATE INDEX IF NOT EXISTS IDX_SN_CIRA_ISSUE_POSITION_ISSUE_ID
+    ON SN_CIRA_ISSUE_POSITION (ISSUE_ID);
