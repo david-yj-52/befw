@@ -1,4 +1,4 @@
--- Flyway Migration: V150__sn_cira_attachment_uploaded_by
+-- Flyway Migration: V170__sn_cira_attachment_uploaded_by
 -- SN_CIRA_ATTACHMENT 테이블에 업로더 정보 컬럼 추가
 -- Generated: 2026-05-27
 
