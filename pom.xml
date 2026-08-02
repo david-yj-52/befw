@@ -234,23 +234,14 @@
     </dependencyManagement>
 
 
+    <!--
+        NOTE: 기존 nexus-snapshots/nexus-releases(http://localhost:8081/...)는
+        각 개발자 로컬 PC에서만 접근 가능한 주소라 GitHub Actions(CI)에서는 도달 불가능해서 제거했습니다.
+        대신 GitHub Packages(Maven)로 배포/조회하도록 전환합니다.
+    -->
     <repositories>
         <repository>
-            <id>nexus-snapshots</id>
-            <url>http://localhost:8081/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>nexus-releases</id>
-            <url>http://localhost:8081/repository/maven-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>github</id>
+            <id>github-schema</id>
             <url>https://maven.pkg.github.com/david-yj-52/befw-schema-repo</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -260,4 +251,17 @@
             </releases>
         </repository>
     </repositories>
+
+    <!--
+        이 pom(parent) 자체를 GitHub Packages에 배포합니다.
+        befw-lib-core/befw-app-server는 각자 저장소가 분리되어 있어 로컬 relativePath로
+        이 pom을 찾을 수 없으므로, CI에서는 이 GitHub Packages 좌표로 parent를 내려받습니다.
+    -->
+    <distributionManagement>
+        <repository>
+            <id>github-befw</id>
+            <name>GitHub Packages - befw</name>
+            <url>https://maven.pkg.github.com/david-yj-52/befw</url>
+        </repository>
+    </distributionManagement>
 </project>
