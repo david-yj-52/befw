@@ -31,6 +31,12 @@
             <artifactId>sol-jcsmp</artifactId>
             <version>10.25.0</version>
         </dependency>
+
+        <!-- RabbitMQ (버전은 spring-boot-dependencies BOM 에서 관리) -->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+        </dependency>
         <!-- Spring Boot Starters -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
