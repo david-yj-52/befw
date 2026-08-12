@@ -6,7 +6,7 @@ on:
     paths:
       - 'pom.xml'
       - '.github/workflows/publish.yml'
-  workflow_dispatch: {}
+  workflow_dispatch: { }
 
 jobs:
   publish:

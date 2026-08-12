@@ -145,6 +145,7 @@ FILE_HEADERS = {
     ),
 }
 
+
 # Extended metadata for 03-13 (loaded from original DDL semantics)
 def _load_extended_meta():
     m = TABLE_META.copy()

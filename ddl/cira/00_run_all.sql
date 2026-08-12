@@ -14,7 +14,8 @@
 -- ============================================================
 
 -- [ Phase 1 : 핵심 구조 ]
-\ir 01_users_and_permissions.sql    -- GS_USER, GS_ROLE, GS_USER_ROLE, GS_PERMISSION, GS_ROLE_PERMISSION, GS_GROUP, GS_GROUP_MEMBER
+\ir
+01_users_and_permissions.sql    -- GS_USER, GS_ROLE, GS_USER_ROLE, GS_PERMISSION, GS_ROLE_PERMISSION, GS_GROUP, GS_GROUP_MEMBER
 \ir 02_projects_and_sprints.sql     -- SN_CIRA_PROJECT, SN_CIRA_PROJECT_MEMBER, SN_CIRA_SPRINT, SN_CIRA_SPRINT_METRICS
 \ir 03_issues_and_workflow.sql      -- SN_CIRA_ISSUE_TYPE, SN_CIRA_ISSUE_STATUS, SN_CIRA_ISSUE, ...
 \ir 04_issue_relations.sql          -- SN_CIRA_ISSUE_LINK, SN_CIRA_ISSUE_SUBTASK
